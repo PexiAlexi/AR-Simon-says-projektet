@@ -7,6 +7,22 @@ using Lean.Touch;
 
 public class GamemanagerAR : MonoBehaviour
 {
+    public Material[] fargknapparna;
+
+    private int knappSelect;
+
+    public float stayLit;
+    private float stayLitCounter;
+    public void StartGame()
+    {
+       
+        knappSelect = Random.Range(0, fargknapparna.Length);
+        fargknapparna[knappSelect].EnableKeyword("_EMISSION");
+
+        stayLitCounter = stayLit;
+
+    }
+
 
     private void OnEnable()
     {
@@ -41,6 +57,20 @@ public class GamemanagerAR : MonoBehaviour
         }
 
 
+    }
+
+    private void Update()
+    {
+        if(stayLitCounter > 0)
+        {
+
+            stayLitCounter -= Time.deltaTime;
+        }
+        else
+        {
+            fargknapparna[knappSelect].DisableKeyword("_EMISSION");
+
+        }
     }
 
 
