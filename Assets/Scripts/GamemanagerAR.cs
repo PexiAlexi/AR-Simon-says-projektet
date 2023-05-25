@@ -60,11 +60,11 @@ public class GamemanagerAR : MonoBehaviour
         {
             GameObject hitObject = hit.collider.gameObject;
 
-            IInteractable2 interactableObj2 = hitObject.gameObject.GetComponent<IInteractable2>();
+            IInteractable interactableObj = hitObject.gameObject.GetComponent<IInteractable>();
 
-            if (interactableObj2 != null)
+            if (interactableObj != null)
             {
-                interactableObj2.Interact2();
+                interactableObj.DeInteract();
             }
         }
 

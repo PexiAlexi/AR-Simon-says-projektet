@@ -11,4 +11,10 @@ public class ChangeColor : MonoBehaviour, IInteractable
         Renderer r = gameObject.GetComponent<Renderer>();
         r.material.color = color;
     }
+
+    public void DeInteract()
+
+    {
+        
+    }
 }
