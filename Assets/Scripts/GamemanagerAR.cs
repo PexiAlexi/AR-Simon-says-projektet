@@ -2,42 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Touch;
-
+using AugmentedRealityCourse;
 
 
 public class GamemanagerAR : MonoBehaviour
 {
-    public Material[] fargknapparna;
-
-    private int knappSelect;
-
-    public float stayLit;
-    private float stayLitCounter;
-    public void StartGame()
-    {
-       
-        knappSelect = Random.Range(0, fargknapparna.Length);
-        fargknapparna[knappSelect].EnableKeyword("_EMISSION");
-
-        stayLitCounter = stayLit;
-
-    }
-
+   
 
     private void OnEnable()
     {
         LeanTouch.OnFingerDown += LeanTouch_OnFingerDown;
+        LeanTouch.OnFingerUp += LeanTouch_OnFingerUp;
     }
 
     private void OnDisable()
     {
         LeanTouch.OnFingerDown -= LeanTouch_OnFingerDown;
+        LeanTouch.OnFingerUp -= LeanTouch_OnFingerUp;
     }
 
     private void LeanTouch_OnFingerDown(LeanFinger obj)
     {
 
-    
+
         Vector3 screenPos = new Vector3(obj.ScreenPosition.x, obj.ScreenPosition.y, Camera.main.nearClipPlane);
 
 
@@ -59,18 +46,29 @@ public class GamemanagerAR : MonoBehaviour
 
     }
 
-    private void Update()
+    private void LeanTouch_OnFingerUp(LeanFinger obj)
     {
-        if(stayLitCounter > 0)
-        {
 
-            stayLitCounter -= Time.deltaTime;
-        }
-        else
-        {
-            fargknapparna[knappSelect].DisableKeyword("_EMISSION");
 
+        Vector3 screenPos = new Vector3(obj.ScreenPosition.x, obj.ScreenPosition.y, Camera.main.nearClipPlane);
+
+
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+
+            IInteractable2 interactableObj2 = hitObject.gameObject.GetComponent<IInteractable2>();
+
+            if (interactableObj2 != null)
+            {
+                interactableObj2.Interact2();
+            }
         }
+
+
     }
 
 
