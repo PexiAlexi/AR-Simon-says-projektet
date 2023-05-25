@@ -909,10 +909,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fargknapparna:
-  - {fileID: 2100000, guid: 02d78e397a7a0894d881efb55e5f6566, type: 2}
-  - {fileID: 2100000, guid: a71881622105ec548af3f77bfc5644fd, type: 2}
-  - {fileID: 2100000, guid: a409c7aaad4029f4fa0d8ce459e51e77, type: 2}
-  - {fileID: 2100000, guid: 228ad5b81cbf1f740a2866043f51ce6d, type: 2}
+  - {fileID: 1172941304}
+  - {fileID: 1927138093}
+  - {fileID: 1773351032}
+  - {fileID: 1905606020}
   stayLit: 2
 --- !u!1 &1773351032
 GameObject:
