@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tryckapafargerna : MonoBehaviour, IInteractable
 {
-    private Renderer renderer; // Använd "Renderer" istället för "r" för tydlighet
+    private Renderer r; // Använd "Renderer" istället för "r" för tydlighet
     private Color originalColor; // För att spara det ursprungliga färgvärdet
     public int thisButtonNumber;
 
@@ -18,21 +18,21 @@ public class Tryckapafargerna : MonoBehaviour, IInteractable
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
-        originalColor = renderer.material.color;
+        r = GetComponent<Renderer>();
+        originalColor = r.material.color;
         thestart = FindAnyObjectByType<startaspelet>();
         theSound = GetComponent<AudioSource>();
         originalPosition = gameObject.transform.localPosition;
     }
 
     public void Interact()
-    {  
-        if(buttonpressed == false)
-        { 
-        renderer.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
-        theSound.Play();
-        gameObject.transform.localPosition = originalPosition - new Vector3(0, 0.2f, 0);
-        buttonpressed = true;
+    {
+        if (buttonpressed == false)
+        {
+            r.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
+            theSound.Play();
+            gameObject.transform.localPosition = originalPosition - new Vector3(0, 0.2f, 0);
+            buttonpressed = true;
         }
 
     }
@@ -40,12 +40,12 @@ public class Tryckapafargerna : MonoBehaviour, IInteractable
     public void DeInteract()
     {
         if (buttonpressed == true)
-        { 
-        renderer.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
-        theSound.Stop();
-        gameObject.transform.localPosition = originalPosition + new Vector3(0, 0.1f, 0);
-        thestart.knapptryckt(thisButtonNumber);
-        buttonpressed = false;
+        {
+            r.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+            theSound.Stop();
+            gameObject.transform.localPosition = originalPosition + new Vector3(0, 0.1f, 0);
+            thestart.knapptryckt(thisButtonNumber);
+            buttonpressed = false;
         }
     }
 }
