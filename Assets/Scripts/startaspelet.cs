@@ -6,6 +6,8 @@ using AugmentedRealityCourse;
 public class startaspelet : MonoBehaviour, IInteractable
 {
     public GameObject[] fargknapparna;
+    public AudioSource[] buttonSounds;
+
     private int knappSelect;
 
     public float stayLit;
@@ -24,6 +26,11 @@ public class startaspelet : MonoBehaviour, IInteractable
     private int InputInsequence;
 
     private Renderer r;
+
+    [SerializeField]
+    private AudioSource correct;
+    [SerializeField]
+    private AudioSource incorrect;
     public void Interact()
     {
         activeSquence.Clear();
@@ -37,6 +44,8 @@ public class startaspelet : MonoBehaviour, IInteractable
        
         r = fargknapparna[activeSquence[postionInSequnce]].GetComponent<Renderer>();
         r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 1f);
+        r.material.EnableKeyword("_EMISSION");
+        buttonSounds[activeSquence[postionInSequnce]].Play();
         stayLitCounter = stayLit;
         shouldBeLit = true;
         
@@ -54,6 +63,8 @@ public class startaspelet : MonoBehaviour, IInteractable
             if(stayLitCounter < 0)
             { 
                 r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 0.5f);
+                r.material.DisableKeyword("_EMISSION");
+                buttonSounds[activeSquence[postionInSequnce]].Stop();
                 shouldBeLit = false;
 
                 shouldBeDark = true;
@@ -84,6 +95,8 @@ public class startaspelet : MonoBehaviour, IInteractable
 
                     r = fargknapparna[activeSquence[postionInSequnce]].GetComponent<Renderer>();
                     r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 1f);
+                    r.material.EnableKeyword("_EMISSION");
+                    buttonSounds[activeSquence[postionInSequnce]].Play();
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
                     shouldBeDark = false;
@@ -108,7 +121,8 @@ public class startaspelet : MonoBehaviour, IInteractable
                 if(activeSquence[InputInsequence] == whichButton)
                 {
 
-                    DebugManager.Instance.AddDebugMessage("Korrekt!");
+                // DebugManager.Instance.AddDebugMessage("Korrekt!");
+                
 
                     InputInsequence++;
 
@@ -123,10 +137,13 @@ public class startaspelet : MonoBehaviour, IInteractable
 
                         r = fargknapparna[activeSquence[postionInSequnce]].GetComponent<Renderer>();
                         r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 1f);
+                        r.material.EnableKeyword("_EMISSION");
+                        buttonSounds[activeSquence[postionInSequnce]].Play();
                         stayLitCounter = stayLit;
                         shouldBeLit = true;
 
                         gameActive = false;
+                        correct.Play();
                     }
 
                 }
@@ -134,7 +151,8 @@ public class startaspelet : MonoBehaviour, IInteractable
                 else
                 {
 
-                    DebugManager.Instance.AddDebugMessage("FEL!");
+                // DebugManager.Instance.AddDebugMessage("FEL!");
+                incorrect.Play();
                     gameActive = false;
                 }
         }
