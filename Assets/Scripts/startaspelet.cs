@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AugmentedRealityCourse;
+using UnityEngine.UI;
+using TMPro;
 
 public class startaspelet : MonoBehaviour, IInteractable
 {
@@ -31,6 +33,25 @@ public class startaspelet : MonoBehaviour, IInteractable
     private AudioSource correct;
     [SerializeField]
     private AudioSource incorrect;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private TextMeshProUGUI HighscoreText;
+
+    void Start ()
+    {
+        if(!PlayerPrefs.HasKey("HiScore"))
+        {
+            PlayerPrefs.SetInt("HiScore", 0);
+        }
+
+        scoreText.text = "0";
+        HighscoreText.text = "" + PlayerPrefs.GetInt("HiScore");
+            
+            
+    }
+
+
     public void Interact()
     {
         activeSquence.Clear();
@@ -48,8 +69,8 @@ public class startaspelet : MonoBehaviour, IInteractable
         buttonSounds[activeSquence[postionInSequnce]].Play();
         stayLitCounter = stayLit;
         shouldBeLit = true;
-        
 
+        scoreText.text = "0";
     }
 
     private void Update()
@@ -128,6 +149,15 @@ public class startaspelet : MonoBehaviour, IInteractable
 
                     if(InputInsequence >= activeSquence.Count)
                     {
+                        if(activeSquence.Count > PlayerPrefs.GetInt("HiScore"))
+                        {
+                        PlayerPrefs.SetInt("HiScore", activeSquence.Count);
+                            
+                        }          
+
+                        scoreText.text = "" + activeSquence.Count;
+                        HighscoreText.text = "" + PlayerPrefs.GetInt("HiScore");
+
                         postionInSequnce = 0;
                         InputInsequence = 0;
 
@@ -144,6 +174,8 @@ public class startaspelet : MonoBehaviour, IInteractable
 
                         gameActive = false;
                         correct.Play();
+
+                    
                     }
 
                 }
