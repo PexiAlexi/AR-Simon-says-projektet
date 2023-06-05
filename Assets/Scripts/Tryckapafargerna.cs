@@ -33,10 +33,11 @@ public class Tryckapafargerna : MonoBehaviour, IInteractable
     }
 
     public void DeInteract()
-    {   
+    {
+            thestart.knapptryckt(thisButtonNumber);
             r.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
             theSound.Stop();
             gameObject.transform.localPosition = originalPosition + new Vector3(0, 0.1f, 0);
-            thestart.knapptryckt(thisButtonNumber);
+            
     }
 }
