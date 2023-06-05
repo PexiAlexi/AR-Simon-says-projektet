@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Changebacktomenuscript : MonoBehaviour, IInteractable
 {
-    public string menuSceneName = "Startscean";
     public void Interact()
     {
-        SceneManager.LoadScene(menuSceneName);
+        Application.Quit();
     }
 
     public void DeInteract()
