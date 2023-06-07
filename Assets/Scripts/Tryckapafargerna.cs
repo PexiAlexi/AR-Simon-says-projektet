@@ -8,6 +8,7 @@ public class Tryckapafargerna : MonoBehaviour, IInteractable
     private Color originalColor; // För att spara det ursprungliga färgvärdet
     public int thisButtonNumber;
 
+    [SerializeField]
     private startaspelet thestart;
 
     private AudioSource theSound;
@@ -19,7 +20,6 @@ public class Tryckapafargerna : MonoBehaviour, IInteractable
     {
         r = GetComponent<Renderer>();
         originalColor = r.material.color;
-        thestart = FindAnyObjectByType<startaspelet>();
         theSound = GetComponent<AudioSource>();
         originalPosition = gameObject.transform.localPosition;
     }

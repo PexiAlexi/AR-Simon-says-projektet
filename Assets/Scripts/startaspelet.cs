@@ -96,18 +96,14 @@ public class startaspelet : MonoBehaviour, IInteractable
         } 
         else if (shouldBeDark)
         {
-
             waitBetweenCounter -= Time.deltaTime;
 
             if(postionInSequnce >= activeSquence.Count)
             {
-
                 shouldBeDark = false;
                 gameActive = true;
             }
-
             else
-
             {
                 if(waitBetweenCounter < 0)
                 {
@@ -122,11 +118,10 @@ public class startaspelet : MonoBehaviour, IInteractable
                     shouldBeDark = false;
 
                 }
-
             }
         }
-
     }
+
 
     public void DeInteract()
     {
@@ -137,12 +132,12 @@ public class startaspelet : MonoBehaviour, IInteractable
     {
         if(gameActive)
         {
-            DebugManager.Instance.AddDebugMessage("knapptryck : gameActive");
+            
         
                 if(activeSquence[InputInsequence] == whichButton)
                 {
 
-                    DebugManager.Instance.AddDebugMessage("Korrekt : " + InputInsequence.ToString());
+                    
                 
                     InputInsequence++;
 
@@ -181,8 +176,6 @@ public class startaspelet : MonoBehaviour, IInteractable
 
                 else
                 {
-
-                DebugManager.Instance.AddDebugMessage("FEL!");
                 incorrect.Play();
                     gameActive = false;
                 }

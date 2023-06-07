@@ -224,6 +224,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &65284395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8857963576581099389, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
+  m_PrefabInstance: {fileID: 8857963575349506355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b29f1f2709eef4ab3471a42a3d83fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &96501533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6830362220152558739, guid: 72c80fde3dd349e49975f086a95d4be9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6830362220152558743, guid: 72c80fde3dd349e49975f086a95d4be9, type: 3}
       propertyPath: m_Pivot.x
@@ -1193,7 +1204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6830362220310417355, guid: 72c80fde3dd349e49975f086a95d4be9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c80fde3dd349e49975f086a95d4be9, type: 3}
@@ -2970,6 +2981,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plattan
       objectReference: {fileID: 0}
+    - target: {fileID: 8857963575597316609, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
+      propertyPath: thestart
+      value: 
+      objectReference: {fileID: 65284395}
+    - target: {fileID: 8857963575643950266, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
+      propertyPath: thestart
+      value: 
+      objectReference: {fileID: 65284395}
+    - target: {fileID: 8857963576048828750, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
+      propertyPath: thestart
+      value: 
+      objectReference: {fileID: 65284395}
+    - target: {fileID: 8857963576387164366, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
+      propertyPath: thestart
+      value: 
+      objectReference: {fileID: 65284395}
     - target: {fileID: 8857963576581099389, guid: f70b9456c6cb2d049948e51f0f6ac38f, type: 3}
       propertyPath: correct
       value: 
